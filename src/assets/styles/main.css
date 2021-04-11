@@ -1,0 +1,8 @@
+@tailwind base;
+
+@tailwind components;
+@import 'components/_book.css';
+
+@tailwind utilities;
+@import 'utilities/_fonts.css';
+@import 'utilities/_text.css';
