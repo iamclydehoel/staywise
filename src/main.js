@@ -4,9 +4,16 @@ import router from './router'
 
 import '@/assets/styles/main.css'
 
-import { FlippingWidgets } from 'vue-turnjs'
-// import 'vue-turnjs/dist/vue-turnjs.esm.css'
-Vue.use(FlippingWidgets)
+// import BookBlock from 'vue-bookblock'
+// Vue.use(BookBlock)
+import BookBlock from './directives/bookblock'
+Vue.use(BookBlock)
+
+import { VueHammer } from 'vue2-hammer'
+Vue.use(VueHammer)
+
+import LottieAnimation from 'lottie-web-vue'
+Vue.use(LottieAnimation)
 
 Vue.config.productionTip = false
 

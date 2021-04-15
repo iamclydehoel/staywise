@@ -34,6 +34,10 @@ module.exports = {
 				'3': '3px',
 				'6': '6px',
 			},
+			cursor: {
+				grab: 'grab',
+				grabbing: 'grabbing',
+			},
 			fontFamily: {
 				sans: ['Inter var', ...fontFamily.sans],
 				rounded: ['Jellee', ...fontFamily.sans],
