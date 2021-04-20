@@ -42,6 +42,14 @@ module.exports = {
 				sans: ['Inter var', ...fontFamily.sans],
 				rounded: ['Jellee', ...fontFamily.sans],
 			},
+			fontSize: {
+				'8xl': ['8.5rem', '1'],
+				'9xl': ['10rem', '1'],
+			},
+			minHeight: {
+				20: '5rem',
+				40: '10rem',
+			},
 			spacing: {
 				'17': '4.25rem',
 				'18': '4.5rem',

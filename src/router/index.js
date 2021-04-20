@@ -9,15 +9,20 @@ const routes = [
 		name: 'Index',
 		component: () => import('../views/Index.vue'),
 	},
+	// {
+	// 	path: '/birthday/',
+	// 	name: 'Birthday',
+	// 	component: () => import('../views/Birthday.vue'),
+	// },
+	// {
+	// 	path: '/wayout/',
+	// 	name: 'WayOut',
+	// 	component: () => import('../views/WayOut.vue'),
+	// },
 	{
-		path: '/birthday',
-		name: 'Birthday',
-		component: () => import('../views/Birthday.vue'),
-	},
-	{
-		path: '/experimentation',
-		name: 'Experimentation',
-		component: () => import('../views/Experimentation.vue'),
+		path: '/template/',
+		name: 'Template',
+		component: () => import('../views/Template.vue'),
 	},
 ]
 
