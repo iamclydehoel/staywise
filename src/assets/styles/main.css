@@ -4,6 +4,7 @@
 @import 'components/_book.css';
 
 @tailwind utilities;
+@import 'utilities/_animations.css';
 @import 'utilities/_fonts.css';
 @import 'utilities/_text.css';
 @import 'utilities/_width.css';
