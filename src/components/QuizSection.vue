@@ -21,7 +21,7 @@
 
 				<transition-opacity>
 					<div v-for="(question, index) in questions" v-if="index + 1 === current" class="relative z-20 flex justify-center -mb-20 pointer-events-none select-none sm:-mb-32" :key="'question-image-' + index">
-						<img :src="require(`@/assets/images/${story}/question-${index + 1}.svg`)" class="w-auto h-40 sm:h-56 2xl:h-64" />
+						<img :src="require(`@/assets/images/${story}/question-${index + 1}.svg`)" class="w-auto h-40 sm:h-56 2xl:h-64" :alt="`Question ${index + 1}`" />
 					</div>
 				</transition-opacity>
 

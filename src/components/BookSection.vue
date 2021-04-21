@@ -19,10 +19,10 @@
 								<div class="bg-grey" @mousedown="startGrab" @mouseup="endGrab" :class="isGrabbing ? 'cursor-grabbing' : 'cursor-grab'">
 									<div v-bookblock="options" v-hammer:swipe.horizontal="(event) => onSwipe(event)" class="bb-bookblock" ref="bookblock">
 										<div class="bb-item">
-											<img ref="cover" :src="require(`@/assets/images/${story}/cover.svg`)" class="w-full h-auto pointer-events-none select-none" />
+											<img ref="cover" :src="require(`@/assets/images/${story}/cover.svg`)" class="w-full h-auto pointer-events-none select-none" height="970" width="1370" alt="Cover" />
 										</div>
 										<div class="bb-item" v-for="index in pages" :key="`page-${index}`">
-											<book-page :ref="`page-${index}`" :autoPlay="false" :loop="true" :animationData="require(`@/assets/animations/${story}/page-${index}.json`)" />
+											<book-page v-if="index === page || index === page - 1 || index === page + 1" :ref="`page-${index}`" :autoPlay="false" :loop="true" :animationData="require(`@/assets/animations/${story}/page-${index}.json`)" />
 										</div>
 									</div>
 								</div>
@@ -101,7 +101,7 @@ export default {
 			if (this.page > 0) {
 				setTimeout(() => {
 					this.$refs[`page-${this.page}`][0].play()
-					this.playAudio()
+					this.playAudio(this.page)
 				}, 1000)
 			}
 
@@ -116,7 +116,7 @@ export default {
 			if (this.page != 0) {
 				setTimeout(() => {
 					this.$refs[`page-${this.page}`][0].play()
-					this.playAudio()
+					this.playAudio(this.page)
 				}, 1000)
 			}
 
@@ -125,16 +125,12 @@ export default {
 		updatePage() {
 			this.page = this.$refs.bookblock.bookblock.currentIdx
 		},
-		playAudio() {
-			for (let index = 1; index <= this.total; index++) {
-				if (this.page === index) {
-					this.audio = require(`@/assets/audio/${this.story}/page-${index}.wav`)
+		playAudio(index) {
+			this.audio = require(`@/assets/audio/${this.story}/page-${index}.wav`)
 
-					this.$nextTick(() => {
-						this.$refs.audioPlayer.play()
-					})
-				}
-			}
+			this.$nextTick(() => {
+				this.$refs.audioPlayer.play()
+			})
 		},
 		firstPage() {
 			this.$refs.bookblock.bookblock.first()
