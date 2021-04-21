@@ -1,7 +1,7 @@
 <template>
 	<div class="h-full">
 		<transition mode="out-in" enter-active-class="transition-opacity duration-700" leave-active-class="transition-opacity duration-300" enter-class="opacity-0" enter-to-class="opacity-100" leave-class="opacity-100" leave-to-class="opacity-0">
-			<book-section v-if="section === 'book'" :story="story" :pages="6" @onSectionChange="updateSection" />
+			<book-section v-if="section === 'book'" :story="story" :pages="7" @onSectionChange="updateSection" />
 			<quiz-section v-if="section === 'quiz'" :story="story" :questions="questions" @onScoreUpdate="updateScore" @onSectionChange="updateSection" />
 			<score-section v-if="section === 'score'" :score="score" @onSectionChange="updateSection" />
 		</transition>
@@ -15,7 +15,7 @@ import QuizSection from '@/components/QuizSection.vue'
 import ScoreSection from '@/components/ScoreSection.vue'
 
 export default {
-	name: 'Template',
+	name: 'WayOut',
 	components: {
 		TransitionOpacity,
 		BookSection,
@@ -24,40 +24,38 @@ export default {
 	},
 	data() {
 		return {
-			story: 'birthday',
+			story: 'wayout',
 			questions: [
 				{
-					text: 'What should Katy do with the matches?',
+					text: 'What is dangerous about what Ella has done?',
 					answers: [
-						{ id: 'a', text: 'Show an adult' },
-						{ id: 'b', text: 'Play with them' },
-						{ id: 'c', text: 'Give them to her brother' },
-					],
-					correct: 'a',
-				},
-				{
-					text: 'Who should use matches?',
-					answers: [
-						{ id: 'a', text: 'Children' },
-						{ id: 'b', text: 'Adults' },
-						{ id: 'c', text: 'Cats' },
+						{ id: 'a', text: 'She is tired' },
+						{ id: 'b', text: 'She has left a tea towel next to the cooker' },
+						{ id: 'c', text: 'She has left the pot on the cooker' },
 					],
 					correct: 'b',
 				},
 				{
-					text: 'Should young children play with matches?',
+					text: 'When you hear the fire alarm, what should you do?',
 					answers: [
-						{ id: 'a', text: 'Yes' },
-						{ id: 'b', text: 'No' },
-						{ id: 'c', text: 'Maybe' },
+						{ id: 'a', text: 'Try to put the fire out' },
+						{ id: 'b', text: 'Get out, stay out, call the fire service using 999' },
+						{ id: 'c', text: 'Run around and scream and shout' },
+					],
+					correct: 'b',
+				},
+				{
+					text: 'Why did the dad ask the boys to tidy the room?',
+					answers: [
+						{ id: 'a', text: 'They wouldn’t be able to find their shoes' },
+						{ id: 'b', text: 'They might fall over them if the fire alarm is sounded' },
+						{ id: 'c', text: 'He likes a tidy house' },
 					],
 					correct: 'b',
 				},
 			],
 			section: 'book',
 			score: null,
-			// section: 'score',
-			// score: 3,
 		}
 	},
 	methods: {
@@ -67,6 +65,9 @@ export default {
 		updateScore(score) {
 			this.score = score
 		},
+	},
+	mounted() {
+		this.$emit('onLoad')
 	},
 }
 </script>

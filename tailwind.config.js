@@ -14,7 +14,6 @@ module.exports = {
 			'green-dark': '#348e3a',
 			indigo: '#475bb3',
 			'indigo-dark': '#2e45a2',
-			// 'indigo-darker': '#3e509d',
 			'indigo-darker': '#2a3b87',
 			orange: '#fab329',
 			red: '#eb2129',
@@ -28,6 +27,7 @@ module.exports = {
 		},
 		dropShadow: {
 			DEFAULT: '0 0.125em 0 rgba(0, 0, 0, 0.25)',
+			lg: '0 0.25em 0 rgba(0, 0, 0, 0.25)',
 		},
 		extend: {
 			borderWidth: {

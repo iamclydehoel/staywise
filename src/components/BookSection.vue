@@ -21,7 +21,7 @@
 										<div class="bb-item">
 											<img ref="cover" :src="require(`@/assets/images/${story}/cover.svg`)" class="w-full h-auto pointer-events-none select-none" />
 										</div>
-										<div class="bb-item" v-for="index in 6" :key="`page-${index}`">
+										<div class="bb-item" v-for="index in pages" :key="`page-${index}`">
 											<book-page :ref="`page-${index}`" :autoPlay="false" :loop="true" :animationData="require(`@/assets/animations/${story}/page-${index}.json`)" />
 										</div>
 									</div>
@@ -75,7 +75,7 @@ export default {
 		BookPanel,
 		BookPage: LottieAnimation,
 	},
-	props: ['story'],
+	props: ['story', 'pages'],
 	data() {
 		return {
 			page: 0,
@@ -94,10 +94,6 @@ export default {
 		}
 	},
 	methods: {
-		changeSection(section) {
-			this.$emit('onSectionChange', section)
-		},
-
 		nextPage() {
 			this.$refs.bookblock.bookblock.next()
 			this.updatePage()
@@ -162,6 +158,9 @@ export default {
 			setTimeout(() => {
 				this.isGrabbing = false
 			}, 200)
+		},
+		changeSection(section) {
+			this.$emit('onSectionChange', section)
 		},
 	},
 

@@ -13,7 +13,7 @@
 								<span class="text-3xl uppercase select-none sm:text-4xl 2xl:text-5xl font-rounded">Q{{ index + 1 }}</span>
 							</span>
 						</div>
-						<div class="flex items-center justify-center px-8 my-4 text-center sm:h-18 2xl:h-20 sm:my-5 2xl:my-10">
+						<div class="flex items-center justify-center px-6 my-4 text-center sm:h-18 2xl:h-20 sm:my-5 2xl:my-10">
 							<p class="text-2xl font-semibold leading-tight sm:text-3xl 2xl:text-4xl">{{ question.text }}</p>
 						</div>
 					</div>
@@ -55,7 +55,7 @@
 										</span>
 									</span>
 
-									<span class="text-lg font-medium leading-none text-left sm:text-xl 2xl:text-2xl">{{ answer.text }}</span>
+									<span class="text-lg font-medium leading-none text-left sm:text-xl sm:leading-none 2xl:leading-none 2xl:text-2xl">{{ answer.text }}</span>
 								</button>
 							</div>
 						</div>

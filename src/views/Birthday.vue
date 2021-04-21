@@ -15,7 +15,7 @@ import QuizSection from '@/components/QuizSection.vue'
 import ScoreSection from '@/components/ScoreSection.vue'
 
 export default {
-	name: 'Template',
+	name: 'Birthday',
 	components: {
 		TransitionOpacity,
 		BookSection,
@@ -56,8 +56,7 @@ export default {
 			],
 			section: 'book',
 			score: null,
-			// section: 'score',
-			// score: 3,
+			loading: true,
 		}
 	},
 	methods: {
@@ -67,6 +66,9 @@ export default {
 		updateScore(score) {
 			this.score = score
 		},
+	},
+	mounted() {
+		this.$emit('onLoad')
 	},
 }
 </script>
