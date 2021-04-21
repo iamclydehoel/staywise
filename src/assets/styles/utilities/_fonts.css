@@ -4,6 +4,6 @@
 	font-family: 'Jellee';
 	font-style: normal;
 	font-weight: 400;
-	src: url('../../fonts/jellee.woff2') format('woff2'),
-		url('../../fonts/jellee.woff') format('woff');
+	font-display: swap;
+	src: url('../../fonts/jellee.woff2') format('woff2'), url('../../fonts/jellee.woff') format('woff');
 }

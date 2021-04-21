@@ -1,5 +1,5 @@
 {
-	"name": "storybook",
+	"name": "staywise",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
@@ -10,7 +10,6 @@
 		"core-js": "^3.6.5",
 		"lottie-web-vue": "^1.0.1",
 		"vue": "^2.6.11",
-		"vue-bookblock": "^1.1.1",
 		"vue-router": "^3.2.0",
 		"vue2-hammer": "^2.1.2"
 	},

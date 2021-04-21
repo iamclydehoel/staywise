@@ -126,7 +126,7 @@ export default {
 			this.page = this.$refs.bookblock.bookblock.currentIdx
 		},
 		playAudio(index) {
-			this.audio = require(`@/assets/audio/${this.story}/page-${index}.wav`)
+			this.audio = require(`@/assets/audio/${this.story}/page-${index}.mp3`)
 
 			this.$nextTick(() => {
 				this.$refs.audioPlayer.play()
