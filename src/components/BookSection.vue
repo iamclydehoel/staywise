@@ -16,10 +16,10 @@
 					<div class="transition-transform duration-1000 origin-top transform" :class="page === 0 ? 'scale-90' : 'scale-100'">
 						<transition appear appear-active-class="transition-opacity duration-1000" appear-class="opacity-0" appear-to-class="opacity-100">
 							<book-panel>
-								<div class="bg-grey" @mousedown="startGrab" @mouseup="endGrab" :class="isGrabbing ? 'cursor-grabbing' : 'cursor-grab'">
+								<div class="bg-white" @mousedown="startGrab" @mouseup="endGrab" :class="isGrabbing ? 'cursor-grabbing' : 'cursor-grab'">
 									<div v-bookblock="options" v-hammer:swipe.horizontal="(event) => onSwipe(event)" class="bb-bookblock" ref="bookblock">
 										<div class="bb-item">
-											<img ref="cover" :src="require(`@/assets/images/${story}/cover.svg`)" class="w-full h-auto pointer-events-none select-none" height="970" width="1370" alt="Cover" />
+											<img ref="cover" :src="require(`@/assets/images/${story}/cover.svg`)" class="w-full h-auto pointer-events-none select-none" height="970" width="1372" alt="Cover" />
 										</div>
 										<div class="bb-item" v-for="index in pages" :key="`page-${index}`">
 											<book-page v-if="index === page || index === page - 1 || index === page + 1" :ref="`page-${index}`" :autoPlay="false" :loop="true" :animationData="require(`@/assets/animations/${story}/page-${index}.json`)" />
