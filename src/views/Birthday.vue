@@ -1,7 +1,7 @@
 <template>
 	<div class="h-full">
 		<transition mode="out-in" enter-active-class="transition-opacity duration-700" leave-active-class="transition-opacity duration-300" enter-class="opacity-0" enter-to-class="opacity-100" leave-class="opacity-100" leave-to-class="opacity-0">
-			<book-section v-if="section === 'book'" :story="story" :pages="6" @onSectionChange="updateSection" />
+			<book-section v-if="section === 'book'" :story="story" :pages="6" :script="script" @onSectionChange="updateSection" />
 			<quiz-section v-if="section === 'quiz'" :story="story" :questions="questions" @onScoreUpdate="updateScore" @onSectionChange="updateSection" />
 			<score-section v-if="section === 'score'" :score="score" @onSectionChange="updateSection" />
 		</transition>
@@ -25,6 +25,26 @@ export default {
 	data() {
 		return {
 			story: 'birthday',
+			script: [
+				{
+					text: 'Katy and Ben return home from a birthday party.',
+				},
+				{
+					text: 'Katy picks up the matches and they both go upstairs.',
+				},
+				{
+					text: 'Katy and Ben pretend to light a birthday cake with the matches.',
+				},
+				{
+					text: 'The smoke alarm starts beeping.',
+				},
+				{
+					text: 'They all go outside and call 999.',
+				},
+				{
+					text: 'The Fire and Rescue Service arrive.',
+				},
+			],
 			questions: [
 				{
 					text: 'What should Katy do with the matches?',

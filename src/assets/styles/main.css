@@ -8,3 +8,9 @@
 @import 'utilities/_fonts.css';
 @import 'utilities/_text.css';
 @import 'utilities/_width.css';
+
+@layer base {
+	body {
+		@apply leading-none;
+	}
+}

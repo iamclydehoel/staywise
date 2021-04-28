@@ -12,7 +12,7 @@
 			<div class="flex-grow h-full min-h-20"></div>
 
 			<div class="flex-grow-0 w-full">
-				<div class="max-w-full mx-auto w-available">
+				<div class="relative max-w-full mx-auto w-available">
 					<div class="transition-transform duration-1000 origin-top transform" :class="page === 0 ? 'scale-90' : 'scale-100'">
 						<transition appear appear-active-class="transition-opacity duration-1000" appear-class="opacity-0" appear-to-class="opacity-100">
 							<book-panel>
@@ -28,6 +28,18 @@
 								</div>
 							</book-panel>
 						</transition>
+
+						<template v-for="(item, index) in script">
+							<transition mode="out-in" enter-active-class="transition-opacity duration-500 delay-700" leave-active-class="transition-opacity duration-300" enter-class="opacity-0" enter-to-class="opacity-100" leave-class="opacity-100" leave-to-class="opacity-0">
+								<template v-if="index + 1 === page">
+									<div class="absolute inset-x-0 px-5 sm:px-8 top-full lg:top-auto lg:bottom-0 lg:px-16 2xl:px-38 z-999">
+										<div class="px-3 py-2 -mt-3 text-center border-4 border-white lg:py-4 lg:mt-0 lg:-mb-5 lg:px-8 bg-teal sm:border-6">
+											<span class="text-sm antialiased leading-4 sm:text-lg sm:leading-6 lg:text-xl 2xl:text-2xl font-rounded">{{ item.text }}</span>
+										</div>
+									</div>
+								</template>
+							</transition>
+						</template>
 					</div>
 				</div>
 			</div>
@@ -66,6 +78,7 @@ import LottieAnimation from 'lottie-web-vue'
 import ButtonText from '@/components/ButtonText.vue'
 import ButtonIcon from '@/components/ButtonIcon.vue'
 import BookPanel from '@/components/BookPanel.vue'
+import TransitionTranslate from './TransitionTranslate.vue'
 
 export default {
 	name: 'BookSection',
@@ -74,8 +87,9 @@ export default {
 		ButtonIcon,
 		BookPanel,
 		BookPage: LottieAnimation,
+		TransitionTranslate,
 	},
-	props: ['story', 'pages'],
+	props: ['story', 'pages', 'script'],
 	data() {
 		return {
 			page: 0,

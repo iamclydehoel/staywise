@@ -56,6 +56,9 @@ module.exports = {
 				'22': '5.5rem',
 				'26': '6.5rem',
 			},
+			zIndex: {
+				'999': '999',
+			},
 		},
 	},
 	variants: {

@@ -1,7 +1,7 @@
 <template>
 	<div class="h-full">
 		<transition mode="out-in" enter-active-class="transition-opacity duration-700" leave-active-class="transition-opacity duration-300" enter-class="opacity-0" enter-to-class="opacity-100" leave-class="opacity-100" leave-to-class="opacity-0">
-			<book-section v-if="section === 'book'" :story="story" :pages="7" @onSectionChange="updateSection" />
+			<book-section v-if="section === 'book'" :story="story" :pages="7" :script="script" @onSectionChange="updateSection" />
 			<quiz-section v-if="section === 'quiz'" :story="story" :questions="questions" @onScoreUpdate="updateScore" @onSectionChange="updateSection" />
 			<score-section v-if="section === 'score'" :score="score" @onSectionChange="updateSection" />
 		</transition>
@@ -25,6 +25,29 @@ export default {
 	data() {
 		return {
 			story: 'wayout',
+			script: [
+				{
+					text: 'Ben had a friend round for tea and a sleepover. Ben’s mum is going to work, she asks the boys to take granny some of the food that is made.',
+				},
+				{
+					text: 'The boys visit Ben’s granny. Ben’s granny lives in the flat below. The boys tell her about the visitors they had at school today who talked about testing smoke alarms.',
+				},
+				{
+					text: 'The boys play in Ben’s bedroom. Ben’s dad asks them to help tidy up and get ready for bed. Ben’s sister, Jess, is already fast asleep.',
+				},
+				{
+					text: 'Ben’s sister, Ella, comes home late. Ella works at the cinema and is often hungry when she gets home. She is tired and doesn’t notice she has left the cooker on.',
+				},
+				{
+					text: 'The alarm starts beeping. Ben and Jake know exactly what to do. They shout ‘Fire’ and get everyone to leave the flat.',
+				},
+				{
+					text: 'Everyone must get out and stay out. Ella has her mobile phone to call 999 for the emergency services.',
+				},
+				{
+					text: 'Within minutes, the Fire and Rescue Service arrive. The fire is put out and the boys speak to the firefighter who had visited their school earlier that day.',
+				},
+			],
 			questions: [
 				{
 					text: 'What is dangerous about what Ella has done?',
