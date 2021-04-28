@@ -69,6 +69,7 @@
 			</div>
 
 			<audio :src="audio" ref="audioPlayer"></audio>
+			<audio :src="effect" ref="effectPlayer" loop></audio>
 		</div>
 	</div>
 </template>
@@ -95,6 +96,7 @@ export default {
 			page: 0,
 			total: null,
 			audio: null,
+			effect: null,
 			isGrabbing: false,
 			options: {
 				speed: 800,
@@ -119,6 +121,13 @@ export default {
 				}, 1000)
 			}
 
+			if ((this.story === 'birthday' && this.page === 4) || (this.story === 'wayout' && this.page === 5)) {
+				this.playEffect('alarm')
+			} else {
+				this.effect = null
+				this.stopEffect()
+			}
+
 			if (this.page > 1) {
 				this.$refs[`page-${this.page - 1}`][0].stop()
 			}
@@ -134,6 +143,13 @@ export default {
 				}, 1000)
 			}
 
+			if ((this.story === 'birthday' && this.page === 4) || (this.story === 'wayout' && this.page === 5)) {
+				this.playEffect('alarm')
+			} else {
+				this.effect = null
+				this.stopEffect()
+			}
+
 			this.$refs[`page-${this.page + 1}`][0].stop()
 		},
 		updatePage() {
@@ -144,6 +160,20 @@ export default {
 
 			this.$nextTick(() => {
 				this.$refs.audioPlayer.play()
+			})
+		},
+		playEffect(sound) {
+			this.effect = require(`@/assets/audio/effects/${sound}.mp3`)
+
+			this.$nextTick(() => {
+				this.$refs.effectPlayer.volume = 0.025
+				this.$refs.effectPlayer.play()
+			})
+		},
+		stopEffect() {
+			this.$nextTick(() => {
+				this.$refs.effectPlayer.pause()
+				this.$refs.effectPlayer.currentTime = 0
 			})
 		},
 		firstPage() {
