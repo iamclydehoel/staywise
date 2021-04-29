@@ -162,6 +162,12 @@ export default {
 				this.$refs.audioPlayer.play()
 			})
 		},
+		stopAudio() {
+			this.$nextTick(() => {
+				this.$refs.audioPlayer.pause()
+				this.$refs.audioPlayer.currentTime = 0
+			})
+		},
 		playEffect(sound) {
 			this.effect = require(`@/assets/audio/effects/${sound}.mp3`)
 
@@ -179,6 +185,8 @@ export default {
 		firstPage() {
 			this.$refs.bookblock.bookblock.first()
 			this.updatePage()
+			this.stopAudio()
+			this.stopEffect()
 		},
 		onSwipe(event) {
 			if (event.type === 'swipeleft') {
